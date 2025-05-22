@@ -1,10 +1,11 @@
 // Файл: src/App.js
 
 import React, { useState, useEffect } from "react";
+import './App.css';
 
 function App() {
   const [timerStarted, setTimerStarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60 * 60); // 60 хвилин у секундах
+  const [timeLeft, setTimeLeft] = useState(60 * 60);
   const [alertShown, setAlertShown] = useState(false);
 
   useEffect(() => {
@@ -35,20 +36,16 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold mb-6">Трекер сидіння 🪑</h1>
-      <button
-        onClick={startTimer}
-        className="text-2xl bg-green-600 text-white px-6 py-4 rounded-2xl shadow-lg hover:bg-green-700"
-      >
+    <div className="container">
+      <h1 className="title">Трекер сидіння 🪑</h1>
+      <button onClick={startTimer} className="start-button">
         Сів на стілець
       </button>
       {timerStarted && (
-        <p className="mt-6 text-xl">Залишилось часу: {formatTime(timeLeft)}</p>
+        <p className="timer-text">Залишилось часу: {formatTime(timeLeft)}</p>
       )}
     </div>
   );
 }
 
 export default App;
-
